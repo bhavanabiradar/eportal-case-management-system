@@ -25,7 +25,20 @@ app.use('/api/users',     require('./routes/users'));
 app.use('/api/dashboard', require('./routes/dashboard'));
 
 // Health check
-app.get('/api/health', (req, res) => res.json({ status: 'OK', timestamp: new Date() }));
+app.get('/api/seed-now', async (req, res) => {
+  try {
+    const User = require('./models/User');
+    const existing = await User.findOne({ email: 'admin@eportal.in' });
+    if (existing) return res.json({ message: 'Already seeded', user: existing.email });
+    await User.create({ name: 'Admin User', email: 'admin@eportal.in', password: 'admin123', role: 'admin' });
+    await User.create({ name: 'Justice R. Sharma', email: 'judge@eportal.in', password: 'judge123', role: 'judge' });
+    await User.create({ name: 'Adv. Priya Mehta', email: 'lawyer@eportal.in', password: 'lawyer123', role: 'lawyer' });
+    await User.create({ name: 'Ravi Kumar', email: 'user@eportal.in', password: 'user123', role: 'litigant' });
+    res.json({ success: true, message: '4 users created' });
+  } catch(e) {
+    res.json({ success: false, error: e.message });
+  }
+});
 
 // ─── Error Handler ────────────────────────────────────────────────────────────
 app.use((err, req, res, next) => {
