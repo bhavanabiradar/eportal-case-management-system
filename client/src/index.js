@@ -1,3 +1,6 @@
+import axios from 'axios';
+axios.defaults.baseURL = 'https://eportal-server.onrender.com';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';

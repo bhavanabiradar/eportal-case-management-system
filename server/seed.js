@@ -88,7 +88,11 @@ async function seed() {
     },
   ];
 
-  const createdCases = await Case.create(casesData);
+  const createdCases = [];
+for (const c of casesData) {
+  const created = await Case.create(c);
+  createdCases.push(created);
+}
   console.log('⚖️  Created', createdCases.length, 'cases');
 
   // Create hearings for first 3 cases
