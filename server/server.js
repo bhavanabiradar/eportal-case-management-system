@@ -25,6 +25,8 @@ app.use('/api/users',     require('./routes/users'));
 app.use('/api/dashboard', require('./routes/dashboard'));
 
 // Health check
+app.get('/api/health', (req, res) => res.json({ status: 'OK', timestamp: new Date() }));
+
 app.get('/api/clear-all', async (req, res) => {
   try {
     await mongoose.connection.db.dropDatabase();
