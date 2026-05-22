@@ -268,7 +268,7 @@ export default function CaseDetailPage() {
               : <div className="table-wrap">
                 <table>
                   <thead>
-                    <tr><th>Title</th><th>Type</th><th>Uploaded By</th><th>Verified</th><th>Date</th></tr>
+                    <tr><th>Title</th><th>Type</th><th>Uploaded By</th><th>Verified</th><th>Date</th><th>Actions</th></tr>
                   </thead>
                   <tbody>
                     {documents.map(d => (
@@ -278,6 +278,25 @@ export default function CaseDetailPage() {
                         <td style={{ fontSize: 13 }}>{d.uploadedBy?.name}</td>
                         <td>{d.isVerified ? '✅ Verified' : '⏳ Pending'}</td>
                         <td style={{ fontSize: 12, color: 'var(--gray-500)' }}>{new Date(d.createdAt).toLocaleDateString()}</td>
+                        <td style={{ whiteSpace: 'nowrap' }}>
+                          <a
+                            href={`${axios.defaults.baseURL || 'http://localhost:5000'}/uploads/${d.fileName}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="btn btn-outline btn-sm"
+                            style={{ marginRight: 6, textDecoration: 'none' }}
+                          >
+                            View
+                          </a>
+                          <a
+                            href={`${axios.defaults.baseURL || 'http://localhost:5000'}/uploads/${d.fileName}`}
+                            download={d.title}
+                            className="btn btn-outline btn-sm"
+                            style={{ textDecoration: 'none' }}
+                          >
+                            ↓ Download
+                          </a>
+                        </td>
                       </tr>
                     ))}
                   </tbody>

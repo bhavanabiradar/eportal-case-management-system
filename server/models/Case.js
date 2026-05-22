@@ -28,6 +28,8 @@ const CaseSchema = new mongoose.Schema(
       contact: { type: String },
       address: { type: String },
     },
+    petitionerUser: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    respondentUser: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     petitionerLawyer: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     respondentLawyer: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     documents: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Document' }],

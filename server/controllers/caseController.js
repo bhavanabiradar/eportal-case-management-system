@@ -11,7 +11,11 @@ exports.getCases = async (req, res) => {
     if (req.user.role === 'lawyer') {
       query.$or = [{ petitionerLawyer: req.user._id }, { respondentLawyer: req.user._id }];
     } else if (req.user.role === 'litigant') {
-      query.filedBy = req.user._id;
+      query.$or = [
+        { filedBy: req.user._id },
+        { petitionerUser: req.user._id },
+        { respondentUser: req.user._id },
+      ];
     } else if (req.user.role === 'judge') {
       query.assignedJudge = req.user._id;
     }

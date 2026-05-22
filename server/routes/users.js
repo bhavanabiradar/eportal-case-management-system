@@ -25,6 +25,16 @@ router.get('/judges', async (req, res) => {
   }
 });
 
+// Get litigants
+router.get('/litigants', async (req, res) => {
+  try {
+    const litigants = await User.find({ role: 'litigant', isActive: true }).select('name email');
+    res.json({ success: true, litigants });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
 // Get lawyers
 router.get('/lawyers', async (req, res) => {
   try {
