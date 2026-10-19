@@ -2,6 +2,25 @@
 
 A centralized digital platform to manage legal case hearings — enabling case registration, document submission, hearing scheduling, real-time tracking, and secure communication between parties.
 
+## 👩‍💻 My Contribution — Bhavana Biradar (ECE)
+
+**Role:** Signal Processing, Communication Systems Research & Future Scope
+
+My contribution focused on analyzing the communication and signal-processing aspects of the e-Portal and researching potential future integrations relevant to Electronics and Communication Engineering (ECE).
+
+### Key Contributions
+
+- **System Analysis:** Contributed to analyzing network bandwidth requirements, data transmission specifications, server load and communication requirements.
+
+- **WebRTC-Based Virtual Courtroom:** Researched and proposed real-time audio/video communication for remote hearings, with potential live transcription using speech-to-text processing.
+
+- **Multilingual Voice Interface:** Proposed a voice-based interface using speech recognition and natural language processing to improve accessibility for users who prefer regional languages.
+
+- **Data Encryption in Transit:** Researched TLS/SSL-based secure communication and the protection of data transmitted between clients and servers.
+
+- **Performance Analysis:** Contributed to the analysis of network throughput, latency measurement and data transmission reliability.
+
+- **ECE Future Scope:** Contributed to the communication-systems and ECE-related future-scope sections of the project.
 ---
 
 ## 📦 Tech Stack
